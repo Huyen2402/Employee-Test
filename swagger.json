@@ -1,0 +1,193 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Employee-Test",
+      "description": "This is description API - Local",
+      "license": {
+        "name": "NIT",
+        "url": "http://localhost:3003"
+      }
+    },
+    "host": "localhost:3003",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Employee",
+        "description": ""
+      },
+      {
+        "name": "Department",
+        "description": ""
+      },
+      {
+        "name": "Department Employee",
+        "description": ""
+      }
+    ],
+    "securityDefinitions": {
+      "JWT": {
+        "type": "apiKey",
+        "name": "x-access-token",
+        "in": "header",
+        "description": ""
+      }
+    },
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "definitions": {
+      "DataResponse": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "number"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "paths": {
+      "/employee": {
+        "get": {
+          "tags": [
+            "Employee"
+          ],
+          "summary": "Get All Employee",
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Data": {
+                    "type": "array",
+                            "items":{
+                              "properties": {
+                                "ID": {
+                                  "type": "number"
+                                },
+                                "Code": {
+                                  "type": "string"
+                                },
+                                "Name": {
+                                  "type": "string"
+                                },
+                                "Phone": {
+                                    "type": "string"
+                                  },
+                                  "Sex": {
+                                    "type": "string"
+                                  },
+                                  "Avt": {
+                                    "type": "string"
+                                  }
+                              }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      }
+      
+    },
+    "/employee/create": {
+        "parameters": [
+          {
+            "name": "Create New Employee",
+            "in": "body",
+            "description": "Create New Employee",
+            "required": "true",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "type": "string"
+                },
+                "Phone": {
+                  "type": "string"
+                },
+                "Sex": {
+                  "type": "string"
+                },
+                "Avt": {
+                  "type": "string"
+                },
+                "Code": {
+                    "type": "string"
+                },
+                "DeparmentName": {
+                    "type": "string"
+                },
+                "DeparmentCode": {
+                    "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "post": {
+          "tags": [
+            "Employee"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Create New Employee",
+          "responses": {
+            "200": {
+              "description": "Call API Success",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Data": {
+                    "type": "object",
+                    "properties": {
+                      "Mess": {
+                        "type": "string"
+                        },
+                      "Data": {
+                        "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Error",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      }
+  }
