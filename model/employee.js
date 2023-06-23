@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER
       },
       Code: {
-        type: Sequelize.CHAR(10)
+        type: Sequelize.STRING
       },
       Name: {
         type: Sequelize.STRING
