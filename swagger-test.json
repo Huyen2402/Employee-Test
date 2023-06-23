@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
       "version": "1.0.0",
-      "title": "santa-connect",
+      "title": "Employee-Test",
       "description": "This is description API - Local",
       "license": {
         "name": "NIT",
@@ -12,14 +12,7 @@
     "host": "localhost:3003",
     "basePath": "/",
     
-    "securityDefinitions": {
-      "JWT": {
-        "type": "apiKey",
-        "name": "x-access-token",
-        "in": "header",
-        "description": ""
-      }
-    },
+    
     "schemes": [
       "http",
       "https"
@@ -55,7 +48,7 @@
             "summary": "Get All Employee",
             "responses": {
               "200": {
-                "description": "",
+                "description": "Call API Success",
                 "schema": {
                   "type": "object",
                   "properties": {
@@ -87,7 +80,7 @@
                 }
               },
               "500": {
-                "description": "Invalid Session",
+                "description": "Error",
                 "schema": {
                   "$ref": "#/definitions/DataResponse"
                 }
@@ -102,7 +95,7 @@
             {
               "name": "Create New Employee",
               "in": "body",
-              "description": "Create New Employee",
+              "description": "Call API Success",
               "required": "true",
               "schema": {
                 "type": "object",
@@ -177,20 +170,10 @@
           "tags": [
             "Employee"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Find employee",
           "responses": {
             "200": {
-              "description": "Find employee",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -233,7 +216,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -282,20 +265,10 @@
           "tags": [
             "Employee"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Update Employee",
           "responses": {
             "200": {
-              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00714 - Name is required field\n00715 - Phone No is not in correct format\n00716 - Email is required field\n00717 - Unit No is required field\n00718 - Postal Code is required field\n00719 - Decline Service does not exist",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -312,7 +285,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -334,20 +307,10 @@
           "tags": [
             "Employee"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Delete One Employee",
           "responses": {
             "200": {
-              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -364,7 +327,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -377,20 +340,10 @@
           "tags": [
             "Employee"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Delete All Employee",
           "responses": {
             "200": {
-              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -407,7 +360,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -423,7 +376,7 @@
           "summary": "Get All Deparment",
           "responses": {
             "200": {
-              "description": "",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -446,7 +399,7 @@
               }
             },
             "500": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -524,20 +477,10 @@
           "tags": [
             "Deparment"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Find deparment",
           "responses": {
             "200": {
-              "description": "Find deparment",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -570,7 +513,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -610,20 +553,10 @@
           "tags": [
             "Deparment"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Update Deparment",
           "responses": {
             "200": {
-              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00714 - Name is required field\n00715 - Phone No is not in correct format\n00716 - Email is required field\n00717 - Unit No is required field\n00718 - Postal Code is required field\n00719 - Decline Service does not exist",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -640,7 +573,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -662,20 +595,10 @@
           "tags": [
             "Deparment"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Delete One Deparment",
           "responses": {
             "200": {
-              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -692,7 +615,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
@@ -705,20 +628,10 @@
           "tags": [
             "Deparment"
           ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
-          ],
           "summary": "Delete All Deparment",
           "responses": {
             "200": {
-              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "description": "Call API Success",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -735,7 +648,7 @@
               }
             },
             "401": {
-              "description": "Invalid Session",
+              "description": "Error",
               "schema": {
                 "$ref": "#/definitions/DataResponse"
               }
