@@ -36,7 +36,8 @@ exports.create = async (req, res, next) => {
       }
       else{
         const codeEmployee = employeeLastest.Code;
-        const numberCode = parseInt(codeEmployee);
+        let numberCode = codeEmployee.replace(/[^0-9]/g, "");
+        numberCode = parseInt(numberCode);
         Code = codeEmployee.replace(
           numberCode.toString(),
           (numberCode + 1).toString()

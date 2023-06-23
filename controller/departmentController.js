@@ -18,6 +18,14 @@ exports.create = async (req, res, next) => {
         if(Name === ''){
             return next(new ApiError(500, "Name is require"));
         }
+        const checkDeparment = await deparment.findOne({
+          where: {
+            Code: Code
+          }
+        });
+        if(!_.isNil(checkDeparment)){
+          return next(new ApiError(404, "Code Deparment is exist"));
+        }
         const data = {
             Name: Name,
             Code: Code
@@ -38,9 +46,17 @@ exports.GetAll = async(req, res, next) => {
   try {
     const deparmentInfo = await deparment.findAll();
     console.log(deparmentInfo);
+    const data = deparmentInfo.map((e) =>{
+      return {
+          ID: e.ID,
+          Code: e.Code,
+          Name: e.Name,
+        }
+  });
+  
       res.json({
         Mess: "success",
-        Data: deparmentInfo,
+        Data: data,
       });
   } catch (error) {
     console.log(error);
