@@ -7,25 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const options = {
-    definition: {
-        openapi: "3.0.0",
-        info: {
-        version: "1.0.0",
-        title: "Employee-Test",
-        description: "This is description API - Local",
-        
-        },
-        servers: [
-            {
-                url: 'http://localhost:3003/'
-            }
-        ],
-        
-    },
-    apis: ["./routes/*.js"],
-}
-const specs = swaggerJsDoc(options);
 const swaggerDocument = require("./swagger-test.json");
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
