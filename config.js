@@ -16,10 +16,5 @@ const config = {
             idle: 10000
             }
     },
-    cloudinary: {
-        cloud_name: "datidmq6e",
-        api_key: "759781736949789",
-        api_secret: "ch7sy_0v7lcV_n0z1GxZcKP3wSs",
-    }
 };
 module.exports = config;

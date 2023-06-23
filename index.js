@@ -9,7 +9,6 @@ const deparment_router = require("./routes/departmentRoute");
 const employee_router = require("./routes/employeeRoute");
 app.use('/employee', employee_router);
 app.use('/deparment', deparment_router);
-// app.use('/deparment_employee', deparment_employee_router);
 db.sequelize.sync();
 
 app.listen(PORT, ()=>{

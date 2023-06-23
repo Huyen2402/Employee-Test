@@ -6,7 +6,6 @@ const ApiError = require("../apiError");
 const _ = require("lodash");
 const { where } = require("sequelize");
 
-// Create and Save a new Tutorial
 exports.create = async (req, res, next) => {
     console.log("create deparment");
     try {
@@ -33,7 +32,7 @@ exports.create = async (req, res, next) => {
     }
 };
 
-// Retrieve all Tutorials from the database.
+
 exports.GetAll = async(req, res, next) => {
     console.log("GetAll deparment");
   try {
@@ -49,7 +48,7 @@ exports.GetAll = async(req, res, next) => {
 
 };
 
-// Find a single Tutorial with an id
+
 exports.findOne = async (req, res, next) => {
     console.log("findOne deparment");
     try {
@@ -67,7 +66,6 @@ exports.findOne = async (req, res, next) => {
     }
 };
 
-// Update a Tutorial by the id in the request
 exports.update = async (req, res, next) => {
   console.log('update deparment');
     try {
@@ -110,7 +108,6 @@ exports.update = async (req, res, next) => {
     }
 };
 
-// Delete a Tutorial with the specified id in the request
 exports.delete = async (req, res, next) => {
     console.log("delete deparment");
     try {
@@ -145,7 +142,7 @@ exports.delete = async (req, res, next) => {
     }
 };
 
-// Delete all Tutorials from the database.
+
 exports.deleteAll = async (req, res, next) => {
   console.log('deleteAll deparment');
     try {

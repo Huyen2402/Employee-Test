@@ -4,7 +4,7 @@ const deparment = db.deparment;
 const deparment_employee = db.deparment_employee;
 const ApiError = require("../apiError");
 const _ = require("lodash");
-// Create and Save a new Tutorial
+
 exports.create = async (req, res, next) => {
   console.log("create employee");
   try {
@@ -72,7 +72,6 @@ exports.create = async (req, res, next) => {
   }
 };
 
-// Retrieve all Tutorials from the database.
 exports.GetAll = async (req, res, next) => {
   console.log("GetAll employee");
   try {
@@ -98,7 +97,6 @@ exports.GetAll = async (req, res, next) => {
   }
 };
 
-// Find a single Tutorial with an id
 exports.findOne = async (req, res, next) => {
   console.log("findOne employee");
   try {
@@ -124,7 +122,6 @@ exports.findOne = async (req, res, next) => {
   }
 };
 
-// Update a Tutorial by the id in the request
 exports.update = async (req, res, next) => {
     console.log('update employee');
     try {
@@ -183,7 +180,6 @@ exports.update = async (req, res, next) => {
     }
 };
 
-// Delete a Tutorial with the specified id in the request
 exports.delete = async (req, res, next) => {
     console.log("delete one employee");
     try {
@@ -211,7 +207,6 @@ exports.delete = async (req, res, next) => {
     }
 };
 
-// Delete all Tutorials from the database.
 exports.deleteAll = async (req, res, next) => {
     console.log('deleteAll employee');
     try {
