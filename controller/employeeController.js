@@ -136,7 +136,7 @@ exports.update = async (req, res, next) => {
         const Avt = Body.Avt || "";
         let query = {};
         const deparment_id = Body.deparment_id || "";
-        const employeeInfo = employee.findByPk(id);
+        const employeeInfo = await employee.findByPk(id);
         if(_.isNil(employeeInfo)){
             return next(new ApiError(404, "Employee is not exist"));
         }
@@ -176,7 +176,7 @@ exports.update = async (req, res, next) => {
        
         res.json({
             Mess: "update employee success",
-            Data: data,
+            Data: '',
           });
     } catch (error) {
         console.log(error);

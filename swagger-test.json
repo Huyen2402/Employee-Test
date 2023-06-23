@@ -1,0 +1,747 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "santa-connect",
+      "description": "This is description API - Local",
+      "license": {
+        "name": "NIT",
+        "url": "http://localhost:3003"
+      }
+    },
+    "host": "localhost:3003",
+    "basePath": "/",
+    
+    "securityDefinitions": {
+      "JWT": {
+        "type": "apiKey",
+        "name": "x-access-token",
+        "in": "header",
+        "description": ""
+      }
+    },
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "definitions": {
+      "DataResponse": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "number"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "paths": {
+        "/employee": {
+          "get": {
+            "tags": [
+              "Employee"
+            ],
+            "summary": "Get All Employee",
+            "responses": {
+              "200": {
+                "description": "",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Data": {
+                      "type": "array",
+                            "items":{
+                            "properties": {
+                            "ID": {
+                                "type": "number"
+                            },
+                            "Code": {
+                                "type": "string"
+                            },
+                            "Name": {
+                                "type": "string"
+                            },
+                            "Phone": {
+                                "type": "string"
+                            },
+                            "Sex": {
+                                "type": "string"
+                            },
+                            "Avt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Invalid Session",
+                "schema": {
+                  "$ref": "#/definitions/DataResponse"
+                }
+              }
+            }
+          }
+        }
+        
+      },
+      "/employee/create": {
+          "parameters": [
+            {
+              "name": "Create New Employee",
+              "in": "body",
+              "description": "Create New Employee",
+              "required": "true",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Sex": {
+                    "type": "string"
+                  },
+                  "Avt": {
+                    "type": "string"
+                  },
+                  "Code": {
+                      "type": "string"
+                  },
+                  "deparment_id": {
+                      "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "post": {
+            "tags": [
+              "Employee"
+            ],
+            "summary": "Create New Employee",
+            "responses": {
+              "200": {
+                "description": "Call API Success",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Data": {
+                      "type": "object",
+                      "properties": {
+                        "Mess": {
+                          "type": "string"
+                          },
+                        "Data": {
+                          "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Error",
+                "schema": {
+                  "$ref": "#/definitions/DataResponse"
+                }
+              }
+            }
+      },
+      "/employee/findOne/{id}": {
+        "parameters": [
+          {
+            "name": "ID employee",
+            "in": "path",
+            "required": true,
+            "description": "",
+            "type": "number"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Employee"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Find employee",
+          "responses": {
+            "200": {
+              "description": "Find employee",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object",
+                    "properties": {
+                        "Data": {
+                            "type": "object",
+                                  
+                                  "ID": {
+                                      "type": "number"
+                                  },
+                                  "Code": {
+                                      "type": "string"
+                                  },
+                                  "Name": {
+                                      "type": "string"
+                                  },
+                                  "Phone": {
+                                      "type": "string"
+                                  },
+                                  "Sex": {
+                                      "type": "string"
+                                  },
+                                  "Avt": {
+                                      "type": "string"
+                                  }
+                              
+                        }
+                      
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      },
+      "/employee/update{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID employee",
+            "required": "true",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "Update Employee",
+            "in": "body",
+            "description": "Update Employee",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Sex": {
+                    "type": "string"
+                  },
+                  "Avt": {
+                    "type": "string"
+                  },
+                  "deparment_id": {
+                      "type": "string"
+                  }
+              }
+            }
+          }
+        ],
+        "put": {
+          "tags": [
+            "Employee"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Update Employee",
+          "responses": {
+            "200": {
+              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00714 - Name is required field\n00715 - Phone No is not in correct format\n00716 - Email is required field\n00717 - Unit No is required field\n00718 - Postal Code is required field\n00719 - Decline Service does not exist",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      },
+      "/employee/deleteOne/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id",
+            "type": "number"
+          }
+        ],
+        "delete": {
+          "tags": [
+            "Employee"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Delete One Employee",
+          "responses": {
+            "200": {
+              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      },
+      "/employee/deleteAll": {
+        "delete": {
+          "tags": [
+            "Employee"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Delete All Employee",
+          "responses": {
+            "200": {
+              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      },
+      "/deparment": {
+        "get": {
+          "tags": [
+            "Deparment"
+          ],
+          "summary": "Get All Deparment",
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Data": {
+                    "type": "array",
+                          "items":{
+                          "properties": {
+                          "ID": {
+                              "type": "number"
+                          },
+                          "Code": {
+                              "type": "string"
+                          },
+                          "Name": {
+                              "type": "string"
+                          }
+                      }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      }
+      
+    },
+    "/deparment/create": {
+        "parameters": [
+          {
+            "name": "Create New Deparment",
+            "in": "body",
+            "description": "Create New Deparment",
+            "required": "true",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "type": "string"
+                },
+                "Code": {
+                    "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "post": {
+          "tags": [
+            "Deparment"
+          ],
+          "summary": "Create New Deparment",
+          "responses": {
+            "200": {
+              "description": "Call API Success",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Data": {
+                    "type": "object",
+                    "properties": {
+                      "Mess": {
+                        "type": "string"
+                        },
+                      "Data": {
+                        "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Error",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+        }
+    },
+    "/deparment/findOne/{id}": {
+        "parameters": [
+          {
+            "name": "ID deparment",
+            "in": "path",
+            "required": true,
+            "description": "",
+            "type": "number"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Deparment"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Find deparment",
+          "responses": {
+            "200": {
+              "description": "Find deparment",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object",
+                    "properties": {
+                        "Data": {
+                            "type": "object",
+                                  
+                                "ID": {
+                                    "type": "number"
+                                },
+                                "Code": {
+                                    "type": "string"
+                                },
+                                "Name": {
+                                    "type": "string"
+                                }
+                        }
+                      
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      },
+      "/deparment/update{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID deparment",
+            "required": "true",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "Update Deparment",
+            "in": "body",
+            "description": "Update Deparment",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                    "type": "string"
+                  },
+                "Code": {
+                    "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "put": {
+          "tags": [
+            "Deparment"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Update Deparment",
+          "responses": {
+            "200": {
+              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00714 - Name is required field\n00715 - Phone No is not in correct format\n00716 - Email is required field\n00717 - Unit No is required field\n00718 - Postal Code is required field\n00719 - Decline Service does not exist",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      },
+      "/deparment/deleteOne/{id}": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "id",
+            "type": "number"
+          }
+        ],
+        "delete": {
+          "tags": [
+            "Deparment"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Delete One Deparment",
+          "responses": {
+            "200": {
+              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      },
+      "/deparment/deleteAll": {
+        "delete": {
+          "tags": [
+            "Deparment"
+          ],
+          "security": [
+            {
+              "JWT": {
+                "type": "apiKey",
+                "name": "x-access-token",
+                "in": "header",
+                "description": ""
+              }
+            }
+          ],
+          "summary": "Delete All Deparment",
+          "responses": {
+            "200": {
+              "description": "errorCode\n0 - Success\n1 - Invalid Session\n00720 - Compartment does not exist\n00724 - Drawer ID is required field",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "number"
+                  },
+                  "Message": {
+                    "type": "string"
+                  },
+                  "Data": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Invalid Session",
+              "schema": {
+                "$ref": "#/definitions/DataResponse"
+              }
+            }
+          }
+        }
+      }
+    }
+}

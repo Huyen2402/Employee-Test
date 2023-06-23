@@ -25,14 +25,6 @@
         "description": ""
       }
     ],
-    "securityDefinitions": {
-      "JWT": {
-        "type": "apiKey",
-        "name": "x-access-token",
-        "in": "header",
-        "description": ""
-      }
-    },
     "schemes": [
       "http",
       "https"
@@ -135,10 +127,7 @@
                 "Code": {
                     "type": "string"
                 },
-                "DeparmentName": {
-                    "type": "string"
-                },
-                "DeparmentCode": {
+                "deparment_id": {
                     "type": "string"
                 }
               }
@@ -148,16 +137,6 @@
         "post": {
           "tags": [
             "Employee"
-          ],
-          "security": [
-            {
-              "JWT": {
-                "type": "apiKey",
-                "name": "x-access-token",
-                "in": "header",
-                "description": ""
-              }
-            }
           ],
           "summary": "Create New Employee",
           "responses": {
@@ -188,6 +167,6 @@
               }
             }
           }
-        }
+    }
       }
   }

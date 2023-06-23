@@ -26,7 +26,7 @@ const options = {
     apis: ["./routes/*.js"],
 }
 const specs = swaggerJsDoc(options);
-const swaggerDocument = require("./swagger.json");
+const swaggerDocument = require("./swagger-test.json");
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
